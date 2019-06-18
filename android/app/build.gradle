@@ -35,7 +35,7 @@ android {
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 
-      resValue "string", "app_name", "TV Shows Debug"
+      resValue "string", "app_name", "Tv Shows Debug"
 
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -48,7 +48,7 @@ android {
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 
-      resValue "string", "app_name", "TV Shows Staging"
+      resValue "string", "app_name", "Tv Shows Staging"
 
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -59,7 +59,7 @@ android {
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 
-      resValue "string", "app_name", "TV Shows"
+      resValue "string", "app_name", "Tv Shows"
 
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

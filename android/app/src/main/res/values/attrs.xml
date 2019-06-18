@@ -17,13 +17,12 @@
  */
  -->
 <resources>
-
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-  </style>
-
+  <declare-styleable name="ImageRatioView">
+    <attr name="image_ratio" format="enum">
+      <enum name="r2_3" value="0" />
+      <enum name="r3_2" value="1" />
+      <enum name="r4_3" value="2" />
+      <enum name="r16_9" value="3" />
+    </attr>
+  </declare-styleable>
 </resources>

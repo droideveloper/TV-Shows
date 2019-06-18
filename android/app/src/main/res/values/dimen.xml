@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ *  Copyright (C) 2019 Fatih, TV Shows Android Kotlin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<resources>
+  <!-- dimensions -->
+  <dimen name="n_dp8">-8dip</dimen>
+  <dimen name="dp0">0dip</dimen>
+  <dimen name="dp1">1dip</dimen>
+  <dimen name="dp2">2dip</dimen>
+  <dimen name="dp4">4dip</dimen>
+  <dimen name="dp6">6dip</dimen>
+  <dimen name="dp8">8dip</dimen>
+  <dimen name="dp10">10dip</dimen>
+  <dimen name="dp12">12dip</dimen>
+  <dimen name="dp14">14dip</dimen>
+  <dimen name="dp16">16dip</dimen>
+  <dimen name="dp18">18dip</dimen>
+  <dimen name="dp20">20dip</dimen>
+  <dimen name="dp22">22dip</dimen>
+  <dimen name="dp24">24dip</dimen>
+  <dimen name="dp30">30dip</dimen>
+  <dimen name="dp32">32dip</dimen>
+  <dimen name="dp36">36dip</dimen>
+  <dimen name="dp42">42dip</dimen>
+  <dimen name="dp48">48dip</dimen>
+  <dimen name="dp56">56dip</dimen>
+  <dimen name="dp64">64dip</dimen>
+  <dimen name="dp72">72dip</dimen>
+  <dimen name="dp81">81dip</dimen>
+  <dimen name="dp96">96dip</dimen>
+  <dimen name="dp124">124dip</dimen>
+  <dimen name="dp128">128dip</dimen>
+  <dimen name="dp150">150dip</dimen>
+  <dimen name="dp256">256dip</dimen>
+
+  <!-- text sizes -->
+  <dimen name="sp8">8sp</dimen>
+  <dimen name="sp10">10sp</dimen>
+  <dimen name="sp12">12sp</dimen>
+  <dimen name="sp14">14sp</dimen>
+  <dimen name="sp16">16sp</dimen>
+  <dimen name="sp18">18sp</dimen>
+  <dimen name="sp20">20sp</dimen>
+  <dimen name="sp22">22sp</dimen>
+  <dimen name="sp24">24sp</dimen>
+  <dimen name="sp26">26sp</dimen>
+  <dimen name="sp28">28sp</dimen>
+  <dimen name="sp30">30sp</dimen>
+  <dimen name="sp32">32sp</dimen>
+  <dimen name="sp36">36sp</dimen>
+  <dimen name="sp42">42sp</dimen>
+</resources>

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
 /*
- *  Copyright (C) 2019 Fatih, TV Shows Android Kotlin.
- *
+ *  Copyright (C) 2019 Fatih, Tv Shows Android Kotlin.
+ *  
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- -->
-<resources>
 
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-  </style>
+package org.fs.tvshows.common
 
-</resources>
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import org.fs.tvshows.R
+
+class TestActivity: AppCompatActivity() {
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.view_tv_show_detail_fragment)
+  }
+}
