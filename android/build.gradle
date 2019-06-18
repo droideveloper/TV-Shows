@@ -10,6 +10,8 @@ buildscript {
     CONSTRAINT_VERSION = "2.0.0-beta1"
     GLIDE_VERSION = "4.8.0"
     HTTP_VERSION = "3.11.0"
+    MOSHI_VERSION = "1.8.0"
+    MOSHI_CONVERTER_VERSION = "2.4.0"
   }
   repositories {
     google()
