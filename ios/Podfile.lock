@@ -1,0 +1,67 @@
+PODS:
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - Kingfisher (5.6.0)
+  - MVICocoa (0.0.1):
+    - Alamofire
+    - AlamofireImage
+    - RxCocoa
+    - RxSwift
+    - Swinject
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxGesture (3.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - Swinject (2.6.1)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - Kingfisher (~> 5.0)
+  - MVICocoa (from `https://github.com/droideveloper/MVICocoa.git`, branch `master`)
+  - RxGesture
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Kingfisher
+    - RxCocoa
+    - RxGesture
+    - RxRelay
+    - RxSwift
+    - Swinject
+    - SwinjectStoryboard
+
+EXTERNAL SOURCES:
+  MVICocoa:
+    :branch: master
+    :git: https://github.com/droideveloper/MVICocoa.git
+
+CHECKOUT OPTIONS:
+  MVICocoa:
+    :commit: 7076d90cdaf5bec6bb5839d6e1ce9bfb599b7ce2
+    :git: https://github.com/droideveloper/MVICocoa.git
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  MVICocoa: f4e85b2cea784114a65b04691be6ec6a8f0e80c7
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  Swinject: b624462f47b635a64f89a60a247baa5fccec14e1
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+
+PODFILE CHECKSUM: 565e4c1494a80a9c3f0c942f415b9c1406ad0092
+
+COCOAPODS: 1.7.1
