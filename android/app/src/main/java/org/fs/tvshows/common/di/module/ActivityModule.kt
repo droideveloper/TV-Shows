@@ -17,6 +17,13 @@
 package org.fs.tvshows.common.di.module
 
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
+import org.fs.architecture.mvi.common.ForFragment
+import org.fs.tvshows.view.TVShowsFragment
 
 @Module
-abstract class ActivityModule
+abstract class ActivityModule {
+
+  @ForFragment @ContributesAndroidInjector(modules = [FragmentModule::class, ProviderFragmentModule::class])
+  abstract fun contributeTVShowsFragment(): TVShowsFragment
+}

@@ -16,7 +16,15 @@
 
 package org.fs.tvshows.common.di.module
 
+import dagger.Binds
 import dagger.Module
+import org.fs.architecture.mvi.common.ForFragment
+import org.fs.tvshows.view.TVShowsFragment
+import org.fs.tvshows.view.TVShowsFragmentView
 
 @Module
-abstract class FragmentModule
+abstract class FragmentModule {
+
+  @ForFragment @Binds abstract fun bindTVShowsFragmentView(fragment: TVShowsFragment): TVShowsFragmentView
+
+}

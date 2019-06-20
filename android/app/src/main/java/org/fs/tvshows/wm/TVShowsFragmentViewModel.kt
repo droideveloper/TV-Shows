@@ -24,6 +24,8 @@ import org.fs.tvshows.common.repo.TVShowRepository
 import org.fs.tvshows.model.TVShowsModel
 import org.fs.tvshows.model.event.LoadMoreTVShowEvent
 import org.fs.tvshows.model.event.LoadTVShowEvent
+import org.fs.tvshows.model.intent.LoadMoreTVShowIntent
+import org.fs.tvshows.model.intent.LoadTVShowIntent
 import org.fs.tvshows.model.intent.NothingIntent
 import org.fs.tvshows.view.TVShowsFragmentView
 import javax.inject.Inject
@@ -36,8 +38,8 @@ class TVShowsFragmentViewModel @Inject constructor(
   override fun initState(): TVShowsModel = TVShowsModel(state = Idle, data = emptyList(), page = 0, totalPage = 0)
 
   override fun toIntent(event: Event): Intent = when (event) {
-    is LoadMoreTVShowEvent -> throw NotImplementedError("weeee")
-    is LoadTVShowEvent -> throw NotImplementedError("weeee")
+    is LoadMoreTVShowEvent -> LoadMoreTVShowIntent(event.page, tvShowRepository)
+    is LoadTVShowEvent -> LoadTVShowIntent(tvShowRepository)
     else -> NothingIntent<TVShowsModel>() // if we can not resolve event to intent
   }
 } 
