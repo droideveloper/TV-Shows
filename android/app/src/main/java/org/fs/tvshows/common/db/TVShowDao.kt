@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.common.db
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
+import android.arch.persistence.room.*
 import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
 
-interface EndpointProxy {
+@Dao interface TVShowDao {
 
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+  @Insert fun insert(entity: TVShowEntity): Int
+  @Update fun update(entity: TVShowEntity): Int
+  @Delete fun delete(entity: TVShowEntity): Int
+
+  @Query("SELECT * FROM tv_shows ORDER BY createDate LIMIT :offset,:limit") fun tvShows(offset: Int, limit: Int): List<TVShowEntity>
+
+  @Query("SELECT * FROM tv_shows WHERE id = :id") fun tvShowById(id: Long): List<TVShowEntity>
 }

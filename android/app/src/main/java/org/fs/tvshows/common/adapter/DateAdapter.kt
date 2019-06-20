@@ -14,17 +14,25 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.common.adapter
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.JsonWriter
+import java.text.SimpleDateFormat
+import java.util.*
 
-interface EndpointProxy {
+class DateAdapter: JsonAdapter<Date>() {
 
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+  private val dateFormat by lazy { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) }
+
+  override fun fromJson(reader: JsonReader): Date? {
+    val string = reader.nextString()
+    return dateFormat.parse(string)
+  }
+
+  override fun toJson(writer: JsonWriter, value: Date?) {
+    val string = dateFormat.format(value)
+    writer.value(string)
+  }
 }

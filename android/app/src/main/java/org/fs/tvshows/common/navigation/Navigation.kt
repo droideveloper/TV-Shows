@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.common.navigation
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
+import android.os.Bundle
 
-interface EndpointProxy {
-
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+interface Navigation<T> {
+  fun navitage(data: T, options: Bundle? = null)
 }

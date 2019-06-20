@@ -19,7 +19,7 @@
 <menu
   xmlns:support="http://schemas.android.com/apk/res-auto"
   xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@+id/ic_bookmark"
+  <item android:id="@+id/ic_action_bookmark"
     android:title="@string/str_bookmark_menu_title"
     android:icon="@drawable/ic_bookmark_saved_green"
     support:showAsAction="always" />

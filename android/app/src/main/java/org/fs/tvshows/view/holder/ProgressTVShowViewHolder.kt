@@ -14,17 +14,26 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.view.holder
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
+import android.view.View
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.view_progress_show.view.*
+import org.fs.architecture.mvi.util.inflate
+import org.fs.tvshows.R
 import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
 
-interface EndpointProxy {
+class ProgressTVShowViewHolder(view: View): BaseTVShowViewHolder(view) {
 
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+  private val viewProgress by lazy { itemView.viewProgress }
+
+  constructor(parent: ViewGroup): this(parent.inflate(R.layout.view_progress_show))
+
+  override fun bind(value: TVShowEntity) = invalidateProgress(true)
+
+  override fun unbind() = invalidateProgress(false)
+
+  private fun invalidateProgress(showProgress: Boolean) {
+    viewProgress.isIndeterminate = showProgress
+  }
 }

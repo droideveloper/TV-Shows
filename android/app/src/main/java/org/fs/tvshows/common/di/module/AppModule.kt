@@ -16,7 +16,28 @@
 
 package org.fs.tvshows.common.di.module
 
+import android.app.Application
+import android.content.Context
+import dagger.Binds
 import dagger.Module
+import okhttp3.Interceptor
+import org.fs.tvshows.App
+import org.fs.tvshows.common.interceptor.AuthorizationInterceptor
+import org.fs.tvshows.common.repo.TVShowRepository
+import org.fs.tvshows.common.repo.TVShowRepositoryImp
+import org.fs.tvshows.net.EndpointProxy
+import org.fs.tvshows.net.EndpointProxyImp
+import javax.inject.Singleton
 
 @Module
-abstract class AppModule
+abstract class AppModule {
+
+  @Singleton @Binds abstract fun bindApplication(app: App): Application
+  @Singleton @Binds abstract fun bindContext(app: Application): Context
+
+  @Singleton @Binds abstract fun bindTVShowRepository(repo: TVShowRepositoryImp): TVShowRepository
+
+  @Singleton @Binds abstract fun bindEndpointProxy(proxy: EndpointProxyImp): EndpointProxy
+
+  @Singleton @Binds abstract fun bindAuthorizationInterceptor(interceptor: AuthorizationInterceptor): Interceptor
+}

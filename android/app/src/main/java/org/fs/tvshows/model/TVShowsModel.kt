@@ -13,18 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.fs.tvshows.model
 
-package org.fs.tvshows.net
-
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
+import org.fs.architecture.mvi.common.Model
+import org.fs.architecture.mvi.common.SyncState
 import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
 
-interface EndpointProxy {
-
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
-}
+data class TVShowsModel(override val state: SyncState, override val data: List<TVShowEntity>, val page: Int, val totalPage: Int) : Model<List<TVShowEntity>>(state, data)

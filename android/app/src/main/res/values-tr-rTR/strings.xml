@@ -18,5 +18,5 @@
  -->
 <resources>
   <string name="str_bookmark_menu_title">Favoriler</string>
-
+  <string name="str_share_menu_title">Paylaş</string>
 </resources>

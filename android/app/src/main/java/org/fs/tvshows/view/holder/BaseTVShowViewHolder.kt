@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.view.holder
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
+import android.view.View
+import org.fs.architecture.mvi.core.AbstractRecyclerViewHolder
 import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
 
-interface EndpointProxy {
-
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
-}
+abstract class BaseTVShowViewHolder(view: View): AbstractRecyclerViewHolder<TVShowEntity>(view)

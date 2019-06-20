@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.model.entity
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
+import android.os.Parcelable
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 
-interface EndpointProxy {
+@Parcelize
+@JsonClass(generateAdapter = true)
+data class NetworkEntity(
+  val name: String? = null,
+  val id: Long? = null,
+  @field:Json(name = "logo_path") val logoPath: String? = null,
+  @field:Json(name = "origin_country") val originCountry: String? = null): Parcelable {
 
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+  companion object {
+    val EMPTY = NetworkEntity()
+  }
 }

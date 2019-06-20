@@ -19,8 +19,8 @@ package org.fs.tvshows.net
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TvShowDetailEntity
-import org.fs.tvshows.model.entity.TvShowEntity
+import org.fs.tvshows.model.entity.TVShowDetailEntity
+import org.fs.tvshows.model.entity.TVShowEntity
 import org.fs.tvshows.net.model.Resource
 import org.fs.tvshows.net.model.response.GenreResponse
 import org.fs.tvshows.net.model.response.Response
@@ -32,8 +32,8 @@ import javax.inject.Singleton
 class EndpointProxyImp @Inject constructor(private val endpoint: Endpoint): EndpointProxy {
 
   override fun genres(): Observable<Resource<List<GenreEntity>>> = endpoint.genres().asGenreResource()
-  override fun shows(tvType: String, page: Int): Observable<Resource<List<TvShowEntity>>> = endpoint.shows(tvType, page).toResource()
-  override fun showDetail(tvShowId: Long): Observable<Resource<TvShowDetailEntity>> = endpoint.showDetail(tvShowId).asTvShowDetailResponse()
+  override fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>> = endpoint.shows(tvType, page).toResource()
+  override fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>> = endpoint.showDetail(tvShowId).asTvShowDetailResponse()
 
   // helper method for genre response to resource
   private fun Observable<retrofit2.Response<GenreResponse>>.asGenreResource(): Observable<Resource<List<GenreEntity>>> = map { response ->
@@ -44,11 +44,11 @@ class EndpointProxyImp @Inject constructor(private val endpoint: Endpoint): Endp
   }.retryForWithDelay()
 
   // tv show detail to resource helper
-  private fun Observable<retrofit2.Response<TvShowDetailEntity>>.asTvShowDetailResponse(): Observable<Resource<TvShowDetailEntity>> = map { response ->
+  private fun Observable<retrofit2.Response<TVShowDetailEntity>>.asTvShowDetailResponse(): Observable<Resource<TVShowDetailEntity>> = map { response ->
     if (response.isSuccessful) {
       return@map Resource.Success(response.body(), null, null)
     }
-    return@map Resource.Failure<TvShowDetailEntity>(statusCode = response.code(), statusMessage = response.message())
+    return@map Resource.Failure<TVShowDetailEntity>(statusCode = response.code(), statusMessage = response.message())
   }.retryForWithDelay()
 
   // tv show list to resource helper

@@ -17,8 +17,8 @@
 package org.fs.tvshows.net
 
 import io.reactivex.Observable
-import org.fs.tvshows.model.entity.TvShowDetailEntity
-import org.fs.tvshows.model.entity.TvShowEntity
+import org.fs.tvshows.model.entity.TVShowDetailEntity
+import org.fs.tvshows.model.entity.TVShowEntity
 import org.fs.tvshows.net.model.response.GenreResponse
 import org.fs.tvshows.net.model.response.Response
 import retrofit2.http.GET
@@ -28,6 +28,6 @@ import retrofit2.http.Query
 interface Endpoint {
 
   @GET("/genre/tv/list") fun genres(): Observable<retrofit2.Response<GenreResponse>>
-  @GET("/tv/{tvType}") fun shows(@Path("tvType") type: String, @Query("page") page: Int): Observable<Response<List<TvShowEntity>>>
-  @GET("/tv/{tvShowId}") fun showDetail(@Path("tvShowId") tvShowId: Long): Observable<retrofit2.Response<TvShowDetailEntity>>
+  @GET("/tv/{tvType}") fun shows(@Path("tvType") type: String, @Query("page") page: Int): Observable<Response<List<TVShowEntity>>>
+  @GET("/tv/{tvShowId}") fun showDetail(@Path("tvShowId") tvShowId: Long): Observable<retrofit2.Response<TVShowDetailEntity>>
 }

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.util 
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
+sealed class C {
+  companion object {
+    const val RECYCLER_CACHE_SIZE = 10
 
-interface EndpointProxy {
+    const val BUNDLE_ARGS_TV_SHOW = "bundle.args.tv.show"
 
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+    const val SHARED_ELEMENT_POSTER = "shared.element.poster"
+    const val SHARED_ELEMENT_TITLE = "shared.element.title"
+    const val SHARED_ELEMENT_DURATION = "shared.element.duration"
+    const val SHARED_ELEMENT_RATE = "shared.element.rate"
+  }
 }

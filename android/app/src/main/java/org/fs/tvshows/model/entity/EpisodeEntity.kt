@@ -17,16 +17,27 @@
 package org.fs.tvshows.model.entity
 
 import android.os.Parcelable
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class GenreEntity(
+data class EpisodeEntity(
+  @field:Json(name = "air_date") val airDate: Date? = null,
+  @field:Json(name = "episode_number") val episodeNumber: Int? = null,
   val id: Long? = null,
-  val name: String? = null): Parcelable {
+  val name: String? = null,
+  val overview: String? = null,
+  @field:Json(name = "production_code") val productionCode: String? = null,
+  @field:Json(name = "season_number") val seasonNumber: Int? = null,
+  @field:Json(name = "show_id") val showNumber: Int? = null,
+  @field:Json(name = "still_path") val stillPath: String? = null,
+  @field:Json(name = "vote_average") val voteAverage: Int? = null,
+  @field:Json(name = "vote_count") val voteCount: Int? = null): Parcelable {
 
   companion object {
-    val EMPTY = GenreEntity()
+    val EMPTY = EpisodeEntity()
   }
 }

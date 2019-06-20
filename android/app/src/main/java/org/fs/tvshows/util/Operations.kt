@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 
-package org.fs.tvshows.net
+package org.fs.tvshows.util
 
-import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
-
-interface EndpointProxy {
-
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+sealed class Operations {
+  companion object {
+    const val REFRESH = 0x01
+    const val LOAD_MORE = 0x02
+    const val SAVE_BOOKMARK = 0x03
+    const val REMOVE_BOOKMARK = 0x04
+  }
 }

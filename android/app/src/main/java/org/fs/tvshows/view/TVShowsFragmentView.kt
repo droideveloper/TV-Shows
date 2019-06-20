@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.fs.tvshows.net
+package org.fs.tvshows.view
 
 import io.reactivex.Observable
-import org.fs.tvshows.model.entity.GenreEntity
-import org.fs.tvshows.model.entity.TVShowDetailEntity
-import org.fs.tvshows.model.entity.TVShowEntity
-import org.fs.tvshows.net.model.Resource
+import org.fs.architecture.mvi.common.View
+import org.fs.tvshows.model.TVShowsModel
+import org.fs.tvshows.model.event.LoadMoreTVShowEvent
+import org.fs.tvshows.model.event.LoadTVShowEvent
 
-interface EndpointProxy {
-
-  fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String, page: Int): Observable<Resource<List<TVShowEntity>>>
-  fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
+interface TVShowsFragmentView : View {
+  fun render(model: TVShowsModel)
+  fun showBookmarks(): Observable<Boolean>
+  fun bindSwipeToRefresh(): Observable<LoadTVShowEvent>
+  fun bindLoadMore(): Observable<LoadMoreTVShowEvent>
+  fun bindLoadMoreState(): Observable<Boolean>
 }

@@ -82,29 +82,11 @@
     tools:text="Adventure, Drama, Fantasy" />
 
   <TextView
-    android:id="@+id/viewTextDuration"
-    support:layout_constraintStart_toEndOf="@+id/viewImagePoster"
-    support:layout_constraintTop_toBottomOf="@+id/viewTextGenre"
-    android:layout_marginStart="@dimen/dp24"
-    android:layout_marginTop="@dimen/dp8"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/ic_duration_background"
-    android:textAppearance="@style/TvShowsTextAppearance.Regular"
-    android:paddingStart="@dimen/dp8"
-    android:paddingEnd="@dimen/dp8"
-    android:paddingTop="2dip"
-    android:paddingBottom="@dimen/dp2"
-    android:textSize="@dimen/sp10"
-    android:textColor="@android:color/white"
-    tools:text="156 min" />
-
-  <TextView
     android:id="@+id/viewTextSpot"
     support:layout_constraintStart_toEndOf="@+id/viewImagePoster"
     support:layout_constraintEnd_toEndOf="parent"
     support:layout_constraintBottom_toBottomOf="parent"
-    support:layout_constraintTop_toBottomOf="@+id/viewTextDuration"
+    support:layout_constraintTop_toBottomOf="@+id/viewTextGenre"
     android:layout_marginStart="@dimen/dp24"
     android:layout_marginEnd="@dimen/dp16"
     android:layout_marginTop="@dimen/dp4"
