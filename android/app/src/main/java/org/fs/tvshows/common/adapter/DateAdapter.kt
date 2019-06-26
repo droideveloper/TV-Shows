@@ -16,9 +16,7 @@
 
 package org.fs.tvshows.common.adapter
 
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.JsonReader
-import com.squareup.moshi.JsonWriter
+import com.squareup.moshi.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,12 +24,12 @@ class DateAdapter: JsonAdapter<Date>() {
 
   private val dateFormat by lazy { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) }
 
-  override fun fromJson(reader: JsonReader): Date? {
+  @FromJson override fun fromJson(reader: JsonReader): Date? {
     val string = reader.nextString()
     return dateFormat.parse(string)
   }
 
-  override fun toJson(writer: JsonWriter, value: Date?) {
+  @ToJson override fun toJson(writer: JsonWriter, value: Date?) {
     val string = dateFormat.format(value)
     writer.value(string)
   }

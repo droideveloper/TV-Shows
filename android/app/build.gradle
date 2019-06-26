@@ -31,7 +31,7 @@ android {
     debug {
       applicationIdSuffix ".debug"
 
-      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3\""
+      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 
@@ -44,7 +44,7 @@ android {
     staging {
       applicationIdSuffix '.staging'
 
-      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3\""
+      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 
@@ -55,7 +55,7 @@ android {
     }
 
     release {
-      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3\""
+      buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
       buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/\""
       buildConfigField "String", "API_KEY", "\"8297345ed46a4ce4a12d6b6a699d3b1c\""
 

@@ -25,6 +25,6 @@ import org.fs.tvshows.net.model.Resource
 interface TVShowRepository {
 
   fun genres(): Observable<Resource<List<GenreEntity>>>
-  fun shows(tvType: String = "popular", page: Int = 0): Observable<Resource<List<TVShowEntity>>>
+  fun shows(tvType: String = "popular", page: Int = 1): Observable<Resource<List<TVShowEntity>>>
   fun showDetail(tvShowId: Long): Observable<Resource<TVShowDetailEntity>>
 }

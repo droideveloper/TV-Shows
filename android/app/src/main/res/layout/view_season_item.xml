@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ *  Copyright (C) 2019 Fatih, Tv Shows Android Kotlin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:support="http://schemas.android.com/apk/res-auto"
+  android:background="@drawable/ic_show_background"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+
+  <org.fs.tvshows.widget.ImageRatioView
+    android:id="@+id/viewImageSeason"
+    support:image_ratio="r2_3"
+    android:layout_width="@dimen/dp96"
+    android:layout_height="wrap_content"
+    support:layout_constraintTop_toTopOf="parent"
+    support:layout_constraintStart_toStartOf="parent"
+    support:layout_constraintBottom_toBottomOf="parent"
+    tools:src="@drawable/ic_placeholder" />
+
+  <TextView
+    android:id="@+id/viewTextSeason"
+    android:layout_width="@dimen/dp0"
+    android:layout_height="wrap_content"
+    support:layout_constraintStart_toStartOf="@+id/viewImageSeason"
+    support:layout_constraintEnd_toEndOf="@+id/viewImageSeason"
+    support:layout_constraintBottom_toBottomOf="parent"
+    android:background="@color/color_orange"
+    android:padding="@dimen/dp4"
+    android:gravity="center"
+    android:textAppearance="@style/TvShowsTextAppearance.Light"
+    android:textSize="@dimen/sp12"
+    tools:text="David Beniof" />
+
+  <TextView
+    android:id="@+id/viewTextSpotSeason"
+    android:layout_width="@dimen/dp128"
+    android:layout_height="wrap_content"
+    support:layout_constraintStart_toEndOf="@+id/viewImageSeason"
+    support:layout_constraintEnd_toEndOf="parent"
+    support:layout_constraintTop_toTopOf="parent"
+    android:maxLines="4"
+    android:ellipsize="end"
+    android:layout_margin="@dimen/dp8"
+    android:textAppearance="@style/TvShowsTextAppearance.Regular"
+    android:textColor="@color/color_genre"
+    tools:text="@string/app_name" />
+
+  <TextView
+    android:id="@+id/viewTextReleaseSeason"
+    support:layout_constraintEnd_toEndOf="parent"
+    support:layout_constraintTop_toBottomOf="@+id/viewTextSpotSeason"
+    android:layout_margin="@dimen/dp4"
+    android:textSize="@dimen/sp10"
+    android:textAppearance="@style/TvShowsTextAppearance.Medium"
+    android:textColor="@color/color_genre"
+    tools:text="2012-04-01"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

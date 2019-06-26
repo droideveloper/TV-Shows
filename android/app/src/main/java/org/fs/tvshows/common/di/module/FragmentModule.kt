@@ -19,6 +19,8 @@ package org.fs.tvshows.common.di.module
 import dagger.Binds
 import dagger.Module
 import org.fs.architecture.mvi.common.ForFragment
+import org.fs.tvshows.view.TVShowDetailFragment
+import org.fs.tvshows.view.TVShowDetailFragmentView
 import org.fs.tvshows.view.TVShowsFragment
 import org.fs.tvshows.view.TVShowsFragmentView
 
@@ -26,5 +28,7 @@ import org.fs.tvshows.view.TVShowsFragmentView
 abstract class FragmentModule {
 
   @ForFragment @Binds abstract fun bindTVShowsFragmentView(fragment: TVShowsFragment): TVShowsFragmentView
+
+  @ForFragment @Binds abstract fun bindTVShowDetailFragmentView(fragment: TVShowDetailFragment): TVShowDetailFragmentView
 
 }

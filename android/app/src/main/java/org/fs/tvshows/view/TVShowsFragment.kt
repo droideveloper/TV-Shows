@@ -20,7 +20,6 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import io.reactivex.Observable
-import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.view_tv_show_fragment.*
 import org.fs.architecture.mvi.common.BusManager
 import org.fs.architecture.mvi.common.Failure
@@ -44,6 +43,7 @@ import org.fs.tvshows.util.Operations.Companion.LOAD_MORE
 import org.fs.tvshows.util.Operations.Companion.REFRESH
 import org.fs.tvshows.util.bind
 import org.fs.tvshows.util.recyclerDivider
+import org.fs.tvshows.util.showError
 import org.fs.tvshows.view.adapter.TVShowAdapter
 import org.fs.tvshows.wm.TVShowsFragmentViewModel
 import javax.inject.Inject
@@ -51,10 +51,17 @@ import javax.inject.Inject
 class TVShowsFragment : AbstractFragment<TVShowsModel, TVShowsFragmentViewModel>(),
   TVShowsFragmentView {
 
+  companion object {
+
+    @JvmStatic fun newInstance(): TVShowsFragment = TVShowsFragment()
+  }
+
   override val layoutRes: Int get() = R.layout.view_tv_show_fragment
 
   @Inject lateinit var tvShowAdapter: TVShowAdapter
   @Inject lateinit var dataSet: ObservableList<TVShowEntity>
+
+  private val isTabletDevice by lazy { resources.getBoolean(R.bool.isTablet) }
 
   private val verticalDivider by lazy { ResourcesCompat.getDrawable(resources, R.drawable.ic_vertical_divider, context?.theme) }
 
@@ -74,10 +81,14 @@ class TVShowsFragment : AbstractFragment<TVShowsModel, TVShowsFragmentViewModel>
   override fun attach() {
     super.attach()
 
-    disposeBag += BusManager.add(Consumer { event -> when(event) {
-        is SelectTVShowEvent -> Unit // TODO change this event for future executing
+    disposeBag += viewModel.state()
+      .map { state ->
+        if (state is Operation) {
+          return@map state.type == REFRESH
+        }
+        return@map false
       }
-    })
+      .subscribe(viewSwipeRefreshLayout::bind)
 
     disposeBag += bindLoadMoreState().subscribe(viewSwipeRefreshLayout::bind) // shows progress
 
@@ -89,13 +100,15 @@ class TVShowsFragment : AbstractFragment<TVShowsModel, TVShowsFragmentViewModel>
 
     disposeBag += viewModel.storage()
       .subscribe(::render)
+
+    checkIfInitialLoadNeeded()
   }
 
   override fun render(model: TVShowsModel)  = when(model.state) {
     is Idle -> Unit
-    is Failure -> Unit // TODO show errors
+    is Failure -> showError(model.state.error)
     is Operation -> when(model.state.type) {
-      REFRESH, LOAD_MORE -> render(model.data)
+      REFRESH, LOAD_MORE -> render(model.data, model.page, model.totalPage)
       else -> Unit
     }
   }
@@ -120,6 +133,7 @@ class TVShowsFragment : AbstractFragment<TVShowsModel, TVShowsFragmentViewModel>
     .doOnNext {
       page = 0
       totalPage = 0
+      dataSet.clear()
     }
     .map { LoadTVShowEvent() }
 
@@ -128,8 +142,14 @@ class TVShowsFragment : AbstractFragment<TVShowsModel, TVShowsFragmentViewModel>
       return@map item.itemId == R.id.ic_action_bookmark
     }
 
-  private fun render(data: List<TVShowEntity>) {
+  private fun render(data: List<TVShowEntity>, page: Int, totalPage: Int) {
+    this.page = page
+    this.totalPage = totalPage
     if (data.isNotEmpty()) {
+      if (dataSet.isEmpty() && isTabletDevice) {
+        val init = data.firstOrNull() ?: TVShowEntity.EMPTY
+        BusManager.send(SelectTVShowEvent(init))
+      }
       dataSet.addAll(data)
     }
   }

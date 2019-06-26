@@ -16,14 +16,25 @@
 
 package org.fs.tvshows.common.di.module
 
+import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import org.fs.architecture.mvi.common.ForActivity
 import org.fs.architecture.mvi.common.ForFragment
+import org.fs.tvshows.view.MainActivity
+import org.fs.tvshows.view.MainActivityView
+import org.fs.tvshows.view.TVShowDetailFragment
 import org.fs.tvshows.view.TVShowsFragment
 
 @Module
 abstract class ActivityModule {
 
+  @ForActivity @Binds abstract fun bindMainActivityView(activity: MainActivity): MainActivityView
+
   @ForFragment @ContributesAndroidInjector(modules = [FragmentModule::class, ProviderFragmentModule::class])
   abstract fun contributeTVShowsFragment(): TVShowsFragment
+
+  @ForFragment @ContributesAndroidInjector(modules = [FragmentModule::class, ProviderFragmentModule::class])
+  abstract fun contributeTVShowDetailFragment(): TVShowDetailFragment
+
 }

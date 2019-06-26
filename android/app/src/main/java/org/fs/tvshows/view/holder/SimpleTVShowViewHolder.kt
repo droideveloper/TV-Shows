@@ -91,5 +91,5 @@ class SimpleTVShowViewHolder(view: View,
     }
 
   private fun bindSelectTVShowEvent(value: TVShowEntity): Observable<SelectTVShowEvent> = itemView.clicks()
-    .map { SelectTVShowEvent() } // TODO bind this in here
+    .map { SelectTVShowEvent(value) } // maybe later for animations
 }

@@ -19,12 +19,15 @@ package org.fs.tvshows.model.entity
 import android.os.Parcelable
 import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
+import org.fs.rx.extensions.util.EMPTY
 
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class GenreEntity(
   val id: Long? = null,
   val name: String? = null): Parcelable {
+
+  override fun toString(): String = name ?: String.EMPTY
 
   companion object {
     val EMPTY = GenreEntity()

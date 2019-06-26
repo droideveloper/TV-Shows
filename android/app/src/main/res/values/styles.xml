@@ -26,4 +26,8 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="RateBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorAccent">@color/color_orange</item>
+  </style>
+
 </resources>

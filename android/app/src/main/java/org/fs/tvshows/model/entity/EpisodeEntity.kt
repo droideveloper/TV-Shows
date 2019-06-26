@@ -30,11 +30,12 @@ data class EpisodeEntity(
   val id: Long? = null,
   val name: String? = null,
   val overview: String? = null,
+  val future: Boolean? = null,
   @field:Json(name = "production_code") val productionCode: String? = null,
   @field:Json(name = "season_number") val seasonNumber: Int? = null,
   @field:Json(name = "show_id") val showNumber: Int? = null,
   @field:Json(name = "still_path") val stillPath: String? = null,
-  @field:Json(name = "vote_average") val voteAverage: Int? = null,
+  @field:Json(name = "vote_average") val voteAverage: Double? = null,
   @field:Json(name = "vote_count") val voteCount: Int? = null): Parcelable {
 
   companion object {

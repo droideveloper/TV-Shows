@@ -20,13 +20,16 @@ import android.app.Application
 import android.content.Context
 import dagger.Binds
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 import okhttp3.Interceptor
+import org.fs.architecture.mvi.common.ForActivity
 import org.fs.tvshows.App
 import org.fs.tvshows.common.interceptor.AuthorizationInterceptor
 import org.fs.tvshows.common.repo.TVShowRepository
 import org.fs.tvshows.common.repo.TVShowRepositoryImp
 import org.fs.tvshows.net.EndpointProxy
 import org.fs.tvshows.net.EndpointProxyImp
+import org.fs.tvshows.view.MainActivity
 import javax.inject.Singleton
 
 @Module
@@ -40,4 +43,7 @@ abstract class AppModule {
   @Singleton @Binds abstract fun bindEndpointProxy(proxy: EndpointProxyImp): EndpointProxy
 
   @Singleton @Binds abstract fun bindAuthorizationInterceptor(interceptor: AuthorizationInterceptor): Interceptor
+
+  @ForActivity @ContributesAndroidInjector(modules = [ActivityModule::class, ProviderActivityModule::class])
+  abstract fun contributeMainActivity(): MainActivity
 }

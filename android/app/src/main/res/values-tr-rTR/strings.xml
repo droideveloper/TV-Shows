@@ -19,4 +19,15 @@
 <resources>
   <string name="str_bookmark_menu_title">Favoriler</string>
   <string name="str_share_menu_title">Paylaş</string>
+
+  <string name="str_seasons_title">Sezonlar</string>
+  <string name="str_last_episode_title">Son Bölüm</string>
+  <string name="str_next_episode_title">Gelecek Bölüm</string>
+  <string name="str_network_title">Yayıncı</string>
+  <string name="str_production_title">Prodiksiyon</string>
+  <string name="str_created_title">Yapımcı</string>
+
+  <string name="str_format" formatted="true">%d dk</string>
+  <string name="str_error">Hata!</string>
+
 </resources>

@@ -17,6 +17,6 @@
 package org.fs.tvshows.model.event
 
 import org.fs.architecture.mvi.common.Event
+import org.fs.tvshows.model.entity.TVShowEntity
 
-class SelectTVShowEvent: Event {
-}
+data class SelectTVShowEvent(val tvShow: TVShowEntity): Event

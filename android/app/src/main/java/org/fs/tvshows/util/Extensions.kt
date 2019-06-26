@@ -19,16 +19,25 @@ package org.fs.tvshows.util
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v4.widget.ViewGroupUtils
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import org.fs.architecture.mvi.common.Model
+import org.fs.architecture.mvi.common.ViewModel
+import org.fs.architecture.mvi.core.AbstractActivity
+import org.fs.architecture.mvi.core.AbstractFragment
 import org.fs.rx.extensions.util.EMPTY
 import org.fs.tvshows.BuildConfig
 import org.fs.tvshows.R
 import org.fs.tvshows.model.entity.*
+import org.fs.tvshows.widget.ErrorSnackbar
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -53,6 +62,16 @@ fun SwipeRefreshLayout.bind(showProgress: Boolean) {
   isRefreshing = showProgress
 }
 
+fun <T, VM> AbstractFragment<T, VM>.showError(error: Throwable) where T: Model<*>, VM: ViewModel<T> = ErrorSnackbar.make(view as ViewGroup, Snackbar.LENGTH_INDEFINITE)
+  .setMessage(error.localizedMessage)
+  .setCallback(View.OnClickListener { /*do nothing*/ })
+  .show()
+
+fun <T, VM> AbstractActivity<T, VM>.showError(error: Throwable) where T: Model<*>, VM: ViewModel<T> = ErrorSnackbar.make(findViewById(android.R.id.content), Snackbar.LENGTH_INDEFINITE)
+  .setMessage(error.localizedMessage)
+  .setCallback(View.OnClickListener { /*do nothing*/ })
+  .show()
+
 // glide options base
 fun RequestOptions.applyBase(): RequestOptions = placeholder(R.drawable.ic_placeholder)
   .error(R.drawable.ic_error_placeholder)
@@ -68,7 +87,7 @@ fun Drawable.recyclerDivider(viewRecycler: RecyclerView, gravity: Int = DividerI
 
 fun toUri(baseUrl: String = BuildConfig.BASE_IMAGE_URL, context: Context, path: String): Uri {
   val displayMetrics = context.resources.displayMetrics
-  val density = "w${displayMetrics.densityDpi}"
+  val density = "w500"//"w${displayMetrics.densityDpi}"
   return Uri.parse("$baseUrl$density$path") ?: Uri.EMPTY
 }
 
@@ -85,3 +104,5 @@ fun SeasonEntity.toPosterUri(context: Context): Uri = toUri(context = context, p
 fun ProductionCompany.toLogoUri(context: Context): Uri = toUri(context = context, path = logoPath ?: String.EMPTY)
 
 fun CreatorEntity.toProfileUri(context: Context): Uri = toUri(context = context, path = profilePath ?: String.EMPTY)
+
+fun NetworkEntity.toLogoUri(context: Context): Uri = toUri(context = context, path = logoPath ?: String.EMPTY)

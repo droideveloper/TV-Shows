@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ *  Copyright (C) 2019 Fatih, Tv Shows Android Kotlin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:support="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:padding="@dimen/dp8"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <TextView
+    android:id="@+id/viewTextTitle"
+    support:layout_constraintStart_toStartOf="parent"
+    support:layout_constraintTop_toTopOf="parent"
+    support:layout_constraintEnd_toEndOf="parent"
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:text="@string/str_error"
+    android:textAppearance="@style/TvShowsTextAppearance.Medium"
+    android:textSize="@dimen/sp16"
+    android:textColor="@color/color_orange" />
+
+  <TextView
+    android:id="@+id/viewTextMessage"
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    support:layout_constraintStart_toStartOf="parent"
+    support:layout_constraintTop_toBottomOf="@+id/viewTextTitle"
+    support:layout_constraintEnd_toEndOf="parent"
+    support:layout_constraintBottom_toBottomOf="parent"
+    android:textAppearance="@style/TvShowsTextAppearance.Regular"
+    android:textSize="@dimen/sp14"
+    android:textColor="@color/color_title"
+    android:layout_marginTop="@dimen/dp8"
+    tools:text="@string/app_name" />
+
+  <Button
+    android:id="@+id/viewButtonCancel"
+    android:layout_width="36dip"
+    android:layout_height="36dip"
+    android:background="@android:color/transparent"
+    android:src="@drawable/ic_close"
+    android:padding="@dimen/dp8"
+    support:layout_constraintEnd_toEndOf="parent"
+    support:layout_constraintTop_toTopOf="parent"
+    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+
+</android.support.constraint.ConstraintLayout>

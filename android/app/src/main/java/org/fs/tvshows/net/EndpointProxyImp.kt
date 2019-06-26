@@ -53,7 +53,7 @@ class EndpointProxyImp @Inject constructor(private val endpoint: Endpoint): Endp
 
   // tv show list to resource helper
   private fun <T> Observable<Response<T>>.toResource(): Observable<Resource<T>> = map { response ->
-    if (response.statusCode != null) {
+    if (response.statusCode == null) {
       return@map Resource.Success(response.result, response.page, response.totalPages)
     }
     return@map Resource.Failure<T>(response.statusCode, response.statusMessage)

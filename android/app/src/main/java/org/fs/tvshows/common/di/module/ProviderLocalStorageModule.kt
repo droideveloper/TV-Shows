@@ -17,7 +17,13 @@
 package org.fs.tvshows.common.di.module
 
 import dagger.Module
+import dagger.Provides
+import org.fs.rx.extensions.common.Variable
+import org.fs.tvshows.model.entity.GenreEntity
+import javax.inject.Singleton
 
 @Module
 class ProviderLocalStorageModule {
+
+  @Singleton @Provides fun provideGenreVaraible(): Variable<List<GenreEntity>> = Variable(emptyList())
 }

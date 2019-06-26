@@ -19,4 +19,14 @@
 <resources>
   <string name="str_bookmark_menu_title">Bookmark</string>
   <string name="str_share_menu_title">Share</string>
+
+  <string name="str_seasons_title">Seasons</string>
+  <string name="str_last_episode_title">Last Episode</string>
+  <string name="str_next_episode_title">Next Episode</string>
+  <string name="str_network_title">Network</string>
+  <string name="str_production_title">Production</string>
+  <string name="str_created_title">Created By</string>
+
+  <string name="str_format" formatted="true">%d mins</string>
+  <string name="str_error">Error!</string>
 </resources>

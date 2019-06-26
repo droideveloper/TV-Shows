@@ -27,7 +27,7 @@ import retrofit2.http.Query
 
 interface Endpoint {
 
-  @GET("/genre/tv/list") fun genres(): Observable<retrofit2.Response<GenreResponse>>
-  @GET("/tv/{tvType}") fun shows(@Path("tvType") type: String, @Query("page") page: Int): Observable<Response<List<TVShowEntity>>>
-  @GET("/tv/{tvShowId}") fun showDetail(@Path("tvShowId") tvShowId: Long): Observable<retrofit2.Response<TVShowDetailEntity>>
+  @GET("genre/tv/list") fun genres(): Observable<retrofit2.Response<GenreResponse>>
+  @GET("tv/{tvType}") fun shows(@Path("tvType") type: String, @Query("page") page: Int): Observable<Response<List<TVShowEntity>>>
+  @GET("tv/{tvShowId}") fun showDetail(@Path("tvShowId") tvShowId: Long): Observable<retrofit2.Response<TVShowDetailEntity>>
 }

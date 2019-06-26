@@ -62,6 +62,7 @@
           support:layout_constraintEnd_toEndOf="@+id/viewImageBackground"
           support:layout_constraintTop_toTopOf="@+id/viewImageBackground"
           support:layout_constraintBottom_toBottomOf="@+id/viewImageBackground"
+          tools:elevation="@dimen/dp1"
           android:layout_width="0dip"
           android:layout_height="0dip" />
 
@@ -73,6 +74,7 @@
           support:layout_constraintStart_toStartOf="parent"
           support:layout_constraintBottom_toBottomOf="parent"
           tools:src="@drawable/ic_placeholder"
+          tools:elevation="@dimen/dp2"
           android:layout_marginStart="@dimen/dp16"
           android:layout_marginBottom="@dimen/dp16" />
 
@@ -82,10 +84,20 @@
           android:layout_height="wrap_content"
           support:srcCompat="@drawable/state_bookmark"
           support:layout_constraintEnd_toEndOf="@+id/viewOverlay"
-          support:layout_constraintBottom_toBottomOf="@+id/viewOverlay"
-          support:fabSize="mini"
-          android:layout_marginEnd="@dimen/dp48"
-          android:layout_marginBottom="@dimen/dp12" />
+          support:layout_constraintBottom_toBottomOf="@+id/viewImagePoster"
+          android:layout_marginEnd="@dimen/dp48" />
+
+        <ProgressBar
+          android:id="@+id/viewProgress"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:indeterminate="true"
+          android:visibility="gone"
+          android:theme="@style/RateBarTheme"
+          support:layout_constraintStart_toStartOf="@+id/viewBookmarkButton"
+          support:layout_constraintTop_toTopOf="@+id/viewBookmarkButton"
+          support:layout_constraintBottom_toBottomOf="@+id/viewBookmarkButton"
+          support:layout_constraintEnd_toEndOf="@+id/viewBookmarkButton" />
 
       </android.support.constraint.ConstraintLayout>
 

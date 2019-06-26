@@ -13,17 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.fs.tvshows.view
 
-package org.fs.tvshows.common
+import org.fs.architecture.mvi.common.View
+import org.fs.tvshows.model.MainModel
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import org.fs.tvshows.R
-
-class TestActivity: AppCompatActivity() {
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.view_tv_show_detail_fragment)
-  }
+interface MainActivityView : View {
+  fun render(model: MainModel)
 }

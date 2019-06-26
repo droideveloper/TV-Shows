@@ -20,10 +20,13 @@ import dagger.Module
 import dagger.Provides
 import org.fs.architecture.mvi.common.ForFragment
 import org.fs.architecture.mvi.util.ObservableList
+import org.fs.tvshows.model.entity.TVShowDetailEntity
 import org.fs.tvshows.model.entity.TVShowEntity
 
 @Module
 class ProviderFragmentModule {
 
   @ForFragment @Provides fun provideTVShowDataSet(): ObservableList<TVShowEntity> = ObservableList()
+
+  @ForFragment @Provides fun provideTVShowDetailDataSet(): ObservableList<TVShowDetailEntity> = ObservableList()
 }
